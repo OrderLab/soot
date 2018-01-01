@@ -8,7 +8,8 @@ echo "(formatting changes will be automatically added to your commit)"
 root_dir="$(git rev-parse --show-toplevel)"
 [ -d "${root_dir}" ] || exit 1
 
-jar_base_dir="formatting/google-java-format-1.5-all-deps.jar"
+jar_path="formatting/google-java-format-1.5-all-deps.jar"
+formatter_jar="${root_dir}/${jar_path}"
 
 # To avoid any unexpected behavior, we need to "stash" any unstaged changes.
 # We could use "git stash" but the situation gets complicated because we
@@ -30,7 +31,6 @@ else
     stored_staged_changes=false
 fi
 
-formatter_jar="${root_dir}/${jar_base_dir}/google-java-format-0.1-alpha.jar"
 formatter_cmd="java -jar ${formatter_jar}"
 # Format file in-place and use 4-space style (AOSP).
 # TODO remove --aosp flag if you want 2-space style.
