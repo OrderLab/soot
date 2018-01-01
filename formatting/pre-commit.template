@@ -33,8 +33,8 @@ fi
 
 formatter_cmd="java -jar ${formatter_jar}"
 # Format file in-place and use 4-space style (AOSP).
-# TODO remove --aosp flag if you want 2-space style.
-formatter_args="--replace --aosp"
+# TODO add --aosp flag if you want 4-space style.
+formatter_args="--replace"
 
 # filter=ACMR shows only added, changed, modified, or renamed files.
 # Get only java files and prepend the root directory to make the paths absolute.
