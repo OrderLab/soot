@@ -1,50 +1,49 @@
 <?xml version="1.0"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:redirect="http://xml.apache.org/xalan/redirect"
-    extension-element-prefixes="redirect"
->
-  <xsl:output method="text" indent="no"/>
-  <xsl:strip-space elements="*"/>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="text" indent="no"/>
+    <xsl:strip-space elements="*"/>
 
 <!--*************************************************************************-->
 <!--* ROOT TEMPLATE *********************************************************-->
 <!--*************************************************************************-->
 
-  <xsl:template match="/options">
-/* Soot - a J*va Optimization Framework
+    <xsl:template match="/options">package soot;
+
+/*-
+ * #%L
+ * Soot - a J*va Optimization Framework
+ * %%
  * Copyright (C) 2004 Ondrej Lhotak
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
+ * %%
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 2.1 of the
+ * License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
- *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Lesser Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Lesser Public
+ * License along with this program.  If not, see
+ * &lt;http://www.gnu.org/licenses/lgpl-2.1.html&gt;.
+ * #L%
  */
 
 /* THIS FILE IS AUTO-GENERATED FROM soot_options.xml. DO NOT MODIFY. */
 
-package soot;
+import soot.*;
 import org.apache.tools.ant.*;
 import org.apache.tools.ant.taskdefs.*;
 import org.apache.tools.ant.types.*;
-import soot.*;
 import java.util.*;
-import java.io.*;
 
-/** Soot ant task.
+/**
+ * Soot ant task.
  * @author Ondrej Lhotak
  */
-
+@javax.annotation.Generated(value = "<xsl:copy-of select="system-property('xsl:vendor')"/> v<xsl:copy-of select="system-property('xsl:version')"/>", date = "<xsl:value-of select="current-dateTime()"/>", comments = "from <xsl:value-of select="tokenize(base-uri(), '/')[last()]"/>")
 public class AntTask extends MatchingTask {
     public static final boolean DEBUG = true;
     private void debug(String s) {
@@ -148,29 +147,6 @@ public class AntTask extends MatchingTask {
         }
   </xsl:template>
 
-<!--* PHASE_OPTION *******************************************************-->
-  <xsl:template mode="parse" match="phaseopt">
-            else if( false<xsl:text/>
-    <xsl:for-each select="alias">
-            || option.equals( "<xsl:value-of select="."/>" )<xsl:text/>
-    </xsl:for-each>
-            ) {
-                if( !hasMoreOptions() ) {
-                    G.v().out.println( "No phase name given for option -"+option );
-                    return false;
-                }
-                String phaseName = nextOption();
-                if( !hasMoreOptions() ) {
-                    G.v().out.println( "No phase option given for option -"+option+" "+phaseName );
-                    return false;
-                }
-                String phaseOption = nextOption();
-    <xsl:variable name="name" select="translate(alias[last()],'-. ','___')"/>
-                phaseOptions.add( phaseName );
-                phaseOptions.add( phaseOption );
-            }
-  </xsl:template>
-
 <!--* STRING_OPTION *******************************************************-->
   <xsl:template mode="parse" match="stropt">
         public void set<xsl:value-of select="translate(alias[last()],'-. ','___')"/>(String arg) {
@@ -181,6 +157,7 @@ public class AntTask extends MatchingTask {
 
 <!--* PHASE_OPTION *******************************************************-->
   <xsl:template mode="parse" match="phaseopt">
+      <!--<xsl:value-of select="."/>***-->
   </xsl:template>
 
 <!--*************************************************************************-->
